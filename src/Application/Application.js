@@ -7,6 +7,7 @@ import Renderer from "./Renderer.js"
 import World from "./World/World.js"
 import sources from "./sources.js"
 import Debug from "./Utils/Debug.js"
+import BaseScene from "./BaseScene.js"
 
 let instance = null;
 
@@ -24,13 +25,23 @@ export default class Application {
         
         // Setup
         this.debug = new Debug();
+        // Sizes and Time will be needed by all BaseScenes, so it is ok to keep them here
         this.sizes = new Sizes();
+        // Might want to have seperate timers for each individual BaseScene (keep track of time since you've entered one particular area)
         this.time = new Time();
-        this.scene = new THREE.Scene();
+        // Will probably want to seperate resources by baseScenes later.
         this.resources = new Resources(sources);
-        this.camera = new Camera();
+
+
+        const tempScene = new BaseScene();
+        this.scenes = {};
+        this.scenes.tempScene = tempScene;
+        this.scenes.currentScene = tempScene;
+
+
+        // Only need one renderer, but we will be switching cameras
         this.renderer = new Renderer(); 
-        this.world = new World();
+
         // Sizes resize event
         this.sizes.on("resize", () => {
             this.resize();
@@ -42,39 +53,41 @@ export default class Application {
     }
 
     resize(){
-        this.camera.resize();
+        // either tell all cameras, or handle resizing to current size when switching to a new camera
+        this.currentScene.camera.resize();
         this.renderer.resize();
     }
 
     update() {
-        this.camera.update();
-        this.world.update();
-        this.renderer.update();
+        if (this.scenes.currentScene){
+            this.scenes.currentScene.update();
+            this.renderer.update();
+        } 
     }
 
-    destroy(){
-        this.sizes.off("resize");
-        this.time.off("tick");
+    // destroy(){
+    //     this.sizes.off("resize");
+    //     this.time.off("tick");
 
-        // Traverse scene
-        this.scene.traverse((child) => {
-            if (child instanceof THREE.Mesh){
-                child.geometry.dispose();
+    //     // Traverse scene
+    //     this.scene.traverse((child) => {
+    //         if (child instanceof THREE.Mesh){
+    //             child.geometry.dispose();
 
-                for (const key in child.material){
-                    const value = child.material[key];
+    //             for (const key in child.material){
+    //                 const value = child.material[key];
 
-                    if (value && typeof value.dispose() === "function"){
-                        value.dispose();
-                    }
-                }
-            }
-        });
-        this.camera.controls.dispose();
-        this.renderer.instance.dispose();
+    //                 if (value && typeof value.dispose() === "function"){
+    //                     value.dispose();
+    //                 }
+    //             }
+    //         }
+    //     });
+    //     this.camera.controls.dispose();
+    //     this.renderer.instance.dispose();
 
-        if (this.debug.active){
-            this.debug.ui.dispose();
-        }
-    }
+    //     if (this.debug.active){
+    //         this.debug.ui.dispose();
+    //     }
+    // }
 }

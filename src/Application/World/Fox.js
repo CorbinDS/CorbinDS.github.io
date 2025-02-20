@@ -2,8 +2,9 @@ import * as THREE from 'three'
 
 import Application from "../Application.js"
 export default class Fox {
-    constructor(){
+    constructor(baseScene){
         this.application = new Application();
+        this.baseScene = baseScene;
         this.scene = this.application.scene;
         this.resources = this.application.resources;
         this.time = this.application.time;
@@ -24,7 +25,7 @@ export default class Fox {
     setModel(){
         this.model = this.resource.scene;
         this.model.scale.set(0.02, 0.02, 0.02);
-        this.scene.add(this.model);
+        this.baseScene.scene.add(this.model);
 
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh){

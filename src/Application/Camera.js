@@ -3,10 +3,11 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Application from "./Application.js"
 
 export default class Camera{
-    constructor() {
+    constructor(baseScene) {
         this.application = new Application();
+        this.baseScene = baseScene;
         this.sizes = this.application.sizes;
-        this.scene = this.application.scene;
+        this.scene = this.baseScene.scene;
         this.canvas = this.application.canvas;
         
         this.setInstance();

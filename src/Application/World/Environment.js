@@ -2,8 +2,9 @@ import * as THREE from 'three'
 
 import Application from "../Application.js"
 export default class Environment{
-    constructor(){
+    constructor(baseScene){
         this.application = new Application();
+        this.baseScene = baseScene;
         this.scene = this.application.scene;
         this.resources = this.application.resources;
         this.debug = this.application.debug;
@@ -23,7 +24,7 @@ export default class Environment{
         this.sunLight.shadow.mapSize.set(1024, 1024)
         this.sunLight.shadow.normalBias = 0.05
         this.sunLight.position.set(3.5, 2, - 1.25)
-        this.scene.add(this.sunLight)
+        this.baseScene.scene.add(this.sunLight)
 
         if (this.debug.active){
             this.debugFolder
@@ -64,10 +65,10 @@ export default class Environment{
         this.environmentMap.texture = this.resources.items.environmentMapTexture;
         this.environmentMap.texture.colorSpace = THREE.SRGBColorSpace;
 
-        this.scene.environment = this.environmentMap.texture;
+        this.baseScene.environment = this.environmentMap.texture;
 
         this.environmentMap.updateMaterial = () => {
-            this.scene.traverse((child) => {
+            this.baseScene.scene.traverse((child) => {
                 if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial){
                     child.material.envMap = this.environmentMap.texture;
                     child.material.envMapIntensity = this.environmentMap.intensity;
