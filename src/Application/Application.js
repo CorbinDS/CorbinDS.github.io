@@ -24,7 +24,6 @@ export default class Application {
         this.canvas = canvas;
         
         // Setup
-        this.debug = new Debug();
         // Sizes and Time will be needed by all BaseScenes, so it is ok to keep them here
         this.sizes = new Sizes();
         // Might want to have seperate timers for each individual BaseScene (keep track of time since you've entered one particular area)
@@ -34,8 +33,11 @@ export default class Application {
 
 
         const tempScene = new BaseScene();
+        const secondScene = new BaseScene();
+        secondScene.world.setShouldRotate();
         this.scenes = {};
         this.scenes.tempScene = tempScene;
+        this.scenes.secondScene = secondScene;
         this.scenes.currentScene = tempScene;
 
 
@@ -63,6 +65,10 @@ export default class Application {
             this.scenes.currentScene.update();
             this.renderer.update();
         } 
+    }
+
+    swapCurrentScene(){
+        this.scenes.currentScene = this.scenes.secondScene;
     }
 
     // destroy(){

@@ -5,9 +5,9 @@ export default class Environment{
     constructor(baseScene){
         this.application = new Application();
         this.baseScene = baseScene;
-        this.scene = this.application.scene;
+        this.scene = this.baseScene.scene;
         this.resources = this.application.resources;
-        this.debug = this.application.debug;
+        this.debug = this.baseScene.debug;
 
         if (this.debug.active){
             this.debugFolder = this.debug.ui.addFolder("environment");

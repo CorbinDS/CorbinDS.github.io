@@ -1,14 +1,15 @@
 import * as THREE from 'three'
+import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
 
 import Application from "../Application.js"
 export default class Fox {
     constructor(baseScene){
         this.application = new Application();
         this.baseScene = baseScene;
-        this.scene = this.application.scene;
+        this.scene = this.baseScene.scene;
         this.resources = this.application.resources;
         this.time = this.application.time;
-        this.debug = this.application.debug;
+        this.debug = this.baseScene.debug;
     
         //Debug
         if (this.debug.active){
@@ -23,9 +24,11 @@ export default class Fox {
     }
 
     setModel(){
-        this.model = this.resource.scene;
+        this.model = SkeletonUtils.clone(this.resource.scene);
+
+        // this.model = this.resource.scene.clone();
         this.model.scale.set(0.02, 0.02, 0.02);
-        this.baseScene.scene.add(this.model);
+        this.scene.add(this.model);
 
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh){

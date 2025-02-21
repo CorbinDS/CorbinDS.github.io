@@ -6,8 +6,8 @@ export default class World {
     constructor(baseScene){
         this.application = new Application();
 
-        console.log(this.application);
-
+        this.shouldRotate = false;
+        
         this.baseScene = baseScene;
         this.scene = this.baseScene.scene;
         this.resources = this.application.resources;
@@ -16,6 +16,7 @@ export default class World {
         this.resources.on("ready", () => {
             // Setup
             this.floor = new Floor(this.baseScene);
+            if (this.shouldRotate) this.floor.rotateMesh();
             this.fox = new Fox(this.baseScene);
             this.environment = new Environment(this.baseScene);
         });
@@ -25,5 +26,8 @@ export default class World {
         if (this.fox){
             this.fox.update();
         }
+    }
+    setShouldRotate(){
+        this.shouldRotate = true;
     }
 }

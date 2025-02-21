@@ -6,8 +6,6 @@ export default class Renderer{
         this.application = new Application();
         this.canvas = this.application.canvas;
         this.sizes = this.application.sizes;
-        this.scene = this.application.scenes.currentScene.scene;
-        this.camera = this.application.scenes.currentScene.camera;
 
         this.setInstance();
     }
@@ -32,7 +30,7 @@ export default class Renderer{
     }
 
     update(){
-        if (this.camera)
-            this.instance.render(this.scene, this.camera.instance);
+        if (this.application.scenes.currentScene)
+            this.instance.render(this.application.scenes.currentScene.scene, this.application.scenes.currentScene.camera.instance);
     }   
 }

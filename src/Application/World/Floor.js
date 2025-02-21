@@ -5,9 +5,9 @@ export default class Floor{
     constructor(baseScene){
         this.application = new Application();
         this.baseScene = baseScene;
-        this.scene = this.application.scene;
+        this.scene = this.baseScene.scene;
         this.resources = this.application.resources;
-
+        
         this.setGeometry();
         this.setTextures();
         this.setMaterial();
@@ -43,6 +43,9 @@ export default class Floor{
         this.mesh.rotation.x = - Math.PI * 0.5;
         this.mesh.receiveShadow = true;
         this.baseScene.scene.add(this.mesh);
+    }
+    rotateMesh(){
+        this.mesh.rotation.x = Math.PI;
     }
 
 }
