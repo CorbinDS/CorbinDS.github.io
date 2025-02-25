@@ -2,12 +2,12 @@ import * as THREE from 'three'
 import Sizes from "./Utils/Sizes.js"
 import Time from "./Utils/Time.js"
 import Resources from "./Utils/Resources.js"
-import Camera from "./Camera.js"
+import Inputs from "./Utils/Inputs.js"
 import Renderer from "./Renderer.js"
-import World from "./World/World.js"
 import sources from "./sources.js"
 import Debug from "./Utils/Debug.js"
-import BaseScene from "./BaseScene.js"
+import StartScene from "./StartScene.js"
+import FoxScene from "./FoxScene.js"
 
 let instance = null;
 
@@ -28,18 +28,18 @@ export default class Application {
         this.sizes = new Sizes();
         // Might want to have seperate timers for each individual BaseScene (keep track of time since you've entered one particular area)
         this.time = new Time();
+        this.inputs = new Inputs();
         // Will probably want to seperate resources by baseScenes later.
         this.resources = new Resources(sources);
 
 
-        const tempScene = new BaseScene();
-        const secondScene = new BaseScene();
-        secondScene.world.setShouldRotate();
+        const tempScene = new FoxScene();
+        const secondScene = new StartScene();
         this.scenes = {};
         this.scenes.tempScene = tempScene;
+
         this.scenes.secondScene = secondScene;
         this.scenes.currentScene = tempScene;
-
 
         // Only need one renderer, but we will be switching cameras
         this.renderer = new Renderer(); 
@@ -56,7 +56,7 @@ export default class Application {
 
     resize(){
         // either tell all cameras, or handle resizing to current size when switching to a new camera
-        this.currentScene.camera.resize();
+        this.scenes.currentScene.camera.resize();
         this.renderer.resize();
     }
 

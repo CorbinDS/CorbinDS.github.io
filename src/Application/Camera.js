@@ -11,7 +11,6 @@ export default class Camera{
         this.canvas = this.application.canvas;
         
         this.setInstance();
-        this.setOrbitControls();
     }
 
     setInstance(){
@@ -22,6 +21,7 @@ export default class Camera{
             100
         );
         this.instance.position.set(6,4,8);
+        this.instance.lookAt(new THREE.Vector3(0, 0, 0));
         this.scene.add(this.instance);
     }
 
@@ -36,6 +36,6 @@ export default class Camera{
     }
 
     update(){
-        this.controls.update();
+        if (this.controls) this.controls.update();
     }
 }
