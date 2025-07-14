@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
+import ExpandedProjectCard from "./ExpandedProjectCard"; // we'll define this next
 
 function ProjectGallery({ projects, showFilters = true }) {
   const [selectedTags, setSelectedTags] = useState([]);
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const allTags = [...new Set(projects.flatMap((p) => p.tags))];
 
@@ -18,6 +20,15 @@ function ProjectGallery({ projects, showFilters = true }) {
       : projects.filter((project) =>
           project.tags.some((tag) => selectedTags.includes(tag))
         );
+
+  // Define the number of cards per row based on screen size
+  const cardsPerRow = 3;
+
+  // Group projects into rows
+  const projectRows = [];
+  for (let i = 0; i < filteredProjects.length; i += cardsPerRow) {
+    projectRows.push(filteredProjects.slice(i, i + cardsPerRow));
+  }
 
   return (
     <div className="space-y-6">
@@ -47,9 +58,37 @@ function ProjectGallery({ projects, showFilters = true }) {
         </div>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filteredProjects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+      <div className="space-y-8">
+        {projectRows.map((row, rowIndex) => (
+          <React.Fragment key={rowIndex}>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {row.map((project, indexInRow) => {
+                const globalIndex = rowIndex * cardsPerRow + indexInRow;
+                return (
+                  <ProjectCard
+                    key={globalIndex}
+                    project={project}
+                    isExpanded={expandedIndex === globalIndex}
+                    onToggle={() =>
+                      setExpandedIndex(
+                        expandedIndex === globalIndex ? null : globalIndex
+                      )
+                    }
+                  />
+                );
+              })}
+            </div>
+            {expandedIndex !== null &&
+              expandedIndex >= rowIndex * cardsPerRow &&
+              expandedIndex < (rowIndex + 1) * cardsPerRow && (
+                <div className="col-span-full">
+                  <ExpandedProjectCard
+                    project={filteredProjects[expandedIndex]}
+                    onClose={() => setExpandedIndex(null)}
+                  />
+                </div>
+              )}
+          </React.Fragment>
         ))}
       </div>
     </div>

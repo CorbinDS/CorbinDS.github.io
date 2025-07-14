@@ -1,14 +1,9 @@
-import React, { useState } from "react";
-
-function ProjectCard({ project }) {
-  const [expanded, setExpanded] = useState(false);
-
-  const handleCardClick = () => {
-    setExpanded((prev) => !prev);
-  };
-
+function ProjectCard({ project, isExpanded, onToggle }) {
   return (
-    <div className="space-y-2 cursor-pointer" onClick={handleCardClick}>
+    <div
+      className="space-y-2 cursor-pointer"
+      onClick={onToggle}
+    >
       <div className="relative group rounded-lg overflow-hidden shadow-lg">
         <img
           src={project.image}
@@ -16,22 +11,24 @@ function ProjectCard({ project }) {
           className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-black bg-opacity-70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-center">
+        <div className="absolute inset-0 bg-black bg-opacity-70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-center pointer-events-none">
           <h3 className="text-xl font-bold">{project.name}</h3>
           <p className="text-sm mt-2">{project.description}</p>
 
-          <div className="flex gap-4 text-sm text-blue-300 mt-4">
-            {project.steam && (
-              <a href={project.steam} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                Steam Page
-              </a>
+          <div className="flex gap-4 text-sm text-blue-300 mt-4 pointer-events-auto">
+            {["steam", "github", "link", "itch", "demo", "gameplay", "video"].map((key) =>
+              project[key] ? (
+                <a
+                  key={key}
+                  href={project[key]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </a>
+              ) : null
             )}
-            {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                GitHub
-              </a>
-            )}
-           
           </div>
         </div>
       </div>
@@ -43,31 +40,6 @@ function ProjectCard({ project }) {
           </span>
         ))}
       </div>
-
-      {expanded && (
-        <div className="mt-2 p-4 bg-gray-50 border rounded space-y-2">
-          {project.embedVideo && (
-            <div className="aspect-video">
-              <iframe
-                src={project.embedVideo}
-                title="Project Video"
-                frameBorder="0"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-          )}
-          {project.embedSteam && (
-            <iframe
-              src={project.embedSteam}
-              frameBorder="0"
-              className="w-full h-64"
-              title="Steam Embed"
-            ></iframe>
-          )}
-          {project.longDescription && <p>{project.longDescription}</p>}
-        </div>
-      )}
     </div>
   );
 }
