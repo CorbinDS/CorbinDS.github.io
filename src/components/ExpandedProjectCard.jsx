@@ -77,7 +77,7 @@ function ExpandedProjectCard({ project, onClose }) {
       {project.embedSteam && (
         <iframe
           src={project.embedSteam}
-          className="w-full h-64"
+          className="w-full h-48"
           title="Steam Embed"
         ></iframe>
       )}
