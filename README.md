@@ -1,0 +1,1 @@
+This is my portfolio showcasing my work. I'm a Cornell graduate passionate about building games, robots and more.
