@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ExpandedProjectCard from "./ExpandedProjectCard"; // we'll define this next
 
-function ProjectGallery({ projects, showFilters = true }) {
+function ProjectGallery({ projects, showFilters = true, expandable = true}) {
   const [selectedTags, setSelectedTags] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -70,15 +70,15 @@ function ProjectGallery({ projects, showFilters = true }) {
                     project={project}
                     isExpanded={expandedIndex === globalIndex}
                     onToggle={() =>
-                      setExpandedIndex(
-                        expandedIndex === globalIndex ? null : globalIndex
-                      )
+                      expandable &&
+                      setExpandedIndex(expandedIndex === globalIndex ? null : globalIndex)
                     }
                   />
                 );
               })}
             </div>
-            {expandedIndex !== null &&
+            {expandable &&
+              expandedIndex !== null &&
               expandedIndex >= rowIndex * cardsPerRow &&
               expandedIndex < (rowIndex + 1) * cardsPerRow && (
                 <div className="col-span-full">
@@ -87,7 +87,7 @@ function ProjectGallery({ projects, showFilters = true }) {
                     onClose={() => setExpandedIndex(null)}
                   />
                 </div>
-              )}
+            )}
           </React.Fragment>
         ))}
       </div>

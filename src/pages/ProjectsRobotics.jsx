@@ -6,7 +6,7 @@ function ProjectsRobotics() {
   return (
     <div className="max-w-screen-xl mx-auto px-4">
         <Link to="/" className="text-blue-500 hover:underline">← Back to Home</Link>
-        <ProjectGallery projects={projects} />
+        <ProjectGallery projects={projects} expandable={false}/>
     </div>
   );
 }
