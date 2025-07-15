@@ -47,9 +47,11 @@ function ExpandedProjectCard({ project, onClose }) {
             )}
         </div>
         
-      {project.longDescription && (
-        <p className="text-gray-700 text-base leading-relaxed">{project.longDescription}</p>
-      )}
+        {project.longDescription && (
+          <div className="text-gray-700 text-base leading-relaxed">
+            {project.longDescription}
+          </div>
+        )}
 
 
       {project.responsibilities && (

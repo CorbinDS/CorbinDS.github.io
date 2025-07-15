@@ -13,7 +13,8 @@ const gameProjects = [
         responsibilities: [
             "Assisted in ideation of the game idea, as well as creation of the initial design document.",
             "Implementation of every C# script for the game.",
-            "Utilized the Unity animation system to animate the character."
+            "Utilized the Unity animation system to animate the character.",
+            "Worked on level design, with emphasis on tutorial systems."
         ]
     },
     {
