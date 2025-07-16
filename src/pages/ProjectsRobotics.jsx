@@ -1,4 +1,4 @@
-import React from "react";
+import Carousel from "../components/Carousel";
 
 export default function ProjectsRobotics() {
   return (
@@ -16,11 +16,64 @@ export default function ProjectsRobotics() {
       <h2 className="text-center text-2xl text-gray-600 font-medium mb-8">
         Fall 2020 - Spring 2024
       </h2>
+      {/* <Carousel
+        items={[
+          {
+            type: "image",
+            src: "/images/physicalBlocklyDemo.png",
+            alt: "Overhead vision system",
+            caption: "Physical Blockly system scanning Apriltags - 2022",
+          },
+          {
+            type: "image",
+            src: "/images/blocklyDemo.png",
+            alt: "Physical Blockly Redo Demo",
+            caption: "Demo of Minibot Physical Blockly with RFID - 2024",
+          },
+          {
+            type: "image",
+            src: "/images/chatbotDemo.png",
+            alt: "Chatbot Demo",
+            caption: "Demo of Minibot Chatbot - 2024",
+          },
+        ]}
+        className="mx-auto size-full"
+      /> */}
+      <Carousel
+        aspect="aspect-auto"
+        items={[
+          {
+            type: "image",
+            src: "/images/FirstMinibot.png",
+            alt: "Original Minibot",
+            caption: "Original Minibot before XRP Redesign - 2023",
+          },
+          {
+            type: "image",
+            src: "/images/minibotCSquare.png",
+            alt: "XRP Minibot Attachments",
+            caption: "Minibot for XRP - 2024",
+          },
+          {
+            type: "image",
+            src: "/images/C1C0Square.png",
+            alt: "C1C0",
+            caption: "C1C0 Project - 2024",
+          },
+          {
+            type: "image",
+            src: "/images/bobFIRST.png",
+            alt: "Bob at FIRST",
+            caption: "BOB VR Robot Prototype - 2024",
+          },
+        ]}
+        className="mx-auto width-l"
+      />
 
       {/* Minibot Developer Section */}
       <section className="mb-12">
         <div className="flex flex-row items-end justify-between mb-2">
-          <h2 className="text-2xl font-semibold">Minibot CS Lead</h2>
+          <h2 className="text-2xl font-semibold">Minibot Developer</h2>
           <div className="flex flex-row gap-4">
             <a
               href="https://github.com/cornell-cup/cs-reminibot"
@@ -50,12 +103,24 @@ export default function ProjectsRobotics() {
         </p>
         <ul className="list-disc pl-6 mb-4">
           <li>
-            Programmed vision systems in Python and Javascript, utilizing OpenCV
-            to recognize Apriltags.
+            Utilized CV principles to correct lens distortion and reduce noise
+            in camera input
+          </li>
+          <li>
+            Programmed vision systems in Python utilizing OpenCV to recognize
+            Apriltags.
+          </li>
+          <li>
+            Worked on the web based basestation for Minibot with Javascript and
+            React
           </li>
           <li>
             Generated Blockly code based on recognized Apriltags, allowing for
             programming with physical objects.
+          </li>
+          <li>
+            Studied the Google Blockly API to generate Blockly tags with
+            Javascript instead of mouse input.
           </li>
         </ul>
         <div className="text-sm text-gray-600">
@@ -110,8 +175,7 @@ export default function ProjectsRobotics() {
         </p>
         <ul className="list-disc pl-6 mb-4">
           <li>
-            Led development of a modular robotics kit utilizing Raspberry Pi
-            (Minibot).
+            Led development of a modular robotics kit utilizing Raspberry Pi and Arduino
           </li>
           <li>
             Lead software sections of presentations to company representatives
@@ -122,8 +186,10 @@ export default function ProjectsRobotics() {
             Sparkfun.
           </li>
           <li>
-            Planned architecture changes to support lower on board computation
-            power and a completely different microcontroller.
+            Planned architecture changes to support a completely different microcontroller.
+          </li>
+          <li>
+            Pushed for LLM integration with existing platform features.
           </li>
         </ul>
         <div className="text-sm text-gray-600">
@@ -152,7 +218,12 @@ export default function ProjectsRobotics() {
           As Team Lead (Spring 2024 - Spring 2024), I oversaw development for
           all three robotics projects. My role was primarily focused on
           coordination, long-term planning, and ensuring communication across
-          CS, Mechanical, and Electrical teams.
+          CS, MechE, and ECE teams. When not running scrum meetings and helping
+          to set goals and deadlines for all three robotics projects, I bounced
+          around helping teams that were running behind. This involved assisting
+          with Unity and VR integration, planning for SPI communication
+          protocols, communication between ESP32 and laptops over the network,
+          and more.
         </p>
         <ul className="list-disc pl-6 mb-4">
           <li>
@@ -167,10 +238,17 @@ export default function ProjectsRobotics() {
             Led presentations to investors, and company representatives of
             Sparkfun, DEKA, AutoDesk, FIRST, and more.
           </li>
+          <li>
+            Assisted with rapid prototyping of software for a robot (BOB) with
+            VR integration.
+          </li>
+          <li>
+            Did simple controls programming for early arm mechanisms for BOB
+          </li>
         </ul>
         <div className="text-sm text-gray-600">
-          <strong>Skills:</strong> project management, Agile project management,
-          project planning, cross-functional leadership, system planning
+          <strong>Skills:</strong> Agile project management, project planning,
+          cross-functional leadership, system planning
         </div>
       </section>
 
@@ -186,7 +264,9 @@ export default function ProjectsRobotics() {
         <p className="text-sm text-gray-600">
           While much of the code is in shared repositories, I'm happy to walk
           through parts I directly contributed to or designed if you'd like to
-          chat!
+          chat! I'm also directly linking the Minibot repositories in
+          particular, but I worked with developers on the other two robotics
+          projects as well.
         </p>
       </section>
     </main>
