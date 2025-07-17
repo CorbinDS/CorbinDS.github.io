@@ -5,10 +5,17 @@ const allTags = [...new Set(projects.flatMap((project) => project.tags))];
 
 function ProjectsGames() {
   return (
-    
     <div className="max-w-screen-xl mx-auto px-4">
-        <Link to="/" className="text-blue-500 hover:underline">← Back to Home</Link>
-        <ProjectGallery projects={projects} />
+      <div>
+        <Link to="/" className="absolute text-blue-500 hover:text-blue-700">
+          ← Back to Home
+        </Link>
+      </div>
+      <h1 className="text-center text-4xl font-bold my-4">
+        {" "}
+        Game Development Projects
+      </h1>
+      <ProjectGallery projects={projects} />
     </div>
   );
 }

@@ -1,8 +1,12 @@
 import Carousel from "../components/Carousel";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function ProjectsRobotics() {
   return (
-    <main className="px-6 py-12 max-w-4xl mx-auto text-gray-800">
+    <main className="px-6 py-1 max-w-screen-xl mx-auto text-gray-800">
+      <Link to="/" className="absolute text-blue-500 hover:text-blue-700">
+        ← Back to Home
+      </Link>
       <h1 className="text-center text-4xl font-bold mb-4">
         My time on{"  "}
         <a
@@ -40,7 +44,7 @@ export default function ProjectsRobotics() {
         className="mx-auto size-full"
       /> */}
       <Carousel
-        aspect="aspect-auto"
+        aspect="aspect-square"
         items={[
           {
             type: "image",
@@ -175,7 +179,8 @@ export default function ProjectsRobotics() {
         </p>
         <ul className="list-disc pl-6 mb-4">
           <li>
-            Led development of a modular robotics kit utilizing Raspberry Pi and Arduino
+            Led development of a modular robotics kit utilizing Raspberry Pi and
+            Arduino
           </li>
           <li>
             Lead software sections of presentations to company representatives
@@ -186,14 +191,13 @@ export default function ProjectsRobotics() {
             Sparkfun.
           </li>
           <li>
-            Planned architecture changes to support a completely different microcontroller.
+            Planned architecture changes to support a completely different
+            microcontroller.
           </li>
-          <li>
-            Pushed for LLM integration with existing platform features.
-          </li>
+          <li>Pushed for LLM integration with existing platform features.</li>
         </ul>
         <div className="text-sm text-gray-600">
-          <strong>Skills:</strong> planning system architecture, team mentoring,
+          <strong>Skills:</strong> Planning system architecture, team mentoring,
           pair debugging, project management, feature planning, leading demos
         </div>
       </section>
