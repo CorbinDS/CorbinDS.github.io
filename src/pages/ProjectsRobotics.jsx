@@ -20,29 +20,6 @@ export default function ProjectsRobotics() {
       <h2 className="text-center text-2xl text-gray-600 font-medium mb-8">
         Fall 2020 - Spring 2024
       </h2>
-      {/* <Carousel
-        items={[
-          {
-            type: "image",
-            src: "/images/physicalBlocklyDemo.png",
-            alt: "Overhead vision system",
-            caption: "Physical Blockly system scanning Apriltags - 2022",
-          },
-          {
-            type: "image",
-            src: "/images/blocklyDemo.png",
-            alt: "Physical Blockly Redo Demo",
-            caption: "Demo of Minibot Physical Blockly with RFID - 2024",
-          },
-          {
-            type: "image",
-            src: "/images/chatbotDemo.png",
-            alt: "Chatbot Demo",
-            caption: "Demo of Minibot Chatbot - 2024",
-          },
-        ]}
-        className="mx-auto size-full"
-      /> */}
       <Carousel
         aspect="aspect-square"
         items={[
@@ -71,7 +48,7 @@ export default function ProjectsRobotics() {
             caption: "BOB VR Robot Prototype - 2024",
           },
         ]}
-        className="mx-auto width-l"
+        className="mx-auto "
       />
 
       {/* Minibot Developer Section */}

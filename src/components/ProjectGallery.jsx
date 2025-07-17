@@ -33,7 +33,8 @@ function ProjectGallery({ projects, showFilters = true, expandable = true}) {
   return (
     <div className="space-y-6">
       {showFilters && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 items-center">
+          <span className="text-xl font-bold leading-none pb-[5px]">Filter by tag:</span>
           {allTags.map((tag, i) => (
             <button
               key={i}

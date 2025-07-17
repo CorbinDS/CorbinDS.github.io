@@ -11,7 +11,7 @@ function ProjectsGames() {
           ← Back to Home
         </Link>
       </div>
-      <h1 className="text-center text-4xl font-bold my-4">
+      <h1 className="text-center text-4xl font-bold my-4 pb-5">
         {" "}
         Game Development Projects
       </h1>

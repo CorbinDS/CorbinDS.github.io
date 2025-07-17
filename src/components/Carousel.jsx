@@ -12,7 +12,7 @@ export default function Carousel({ items, className = "", aspect = "aspect-video
   return (
     <div className={`relative w-full max-w-md ${className}`}>
       {/* Media with transition */}
-      <div className={`aspect-video overflow-hidden rounded relative ${aspect}`}>
+      <div className={`overflow-hidden rounded relative ${aspect}`}>
         <div className="transition-opacity duration-500 ease-in-out opacity-100 w-full h-full">
           {item.type === "image" ? (
             <img

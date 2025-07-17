@@ -5,8 +5,16 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function ProjectsOther() {
   return (
     <div className="max-w-screen-xl mx-auto px-4">
-        <Link to="/" className="text-blue-500 hover:underline">← Back to Home</Link>
-        <ProjectGallery projects={projects} expandable={true}/>
+      <div>
+        <Link to="/" className="absolute text-blue-500 hover:text-blue-700">
+          ← Back to Home
+        </Link>
+      </div>
+      <h1 className="text-center text-4xl font-bold my-4 pb-5">
+        {" "}
+        Game Development Projects
+      </h1>
+      <ProjectGallery projects={projects} expandable={true} />
     </div>
   );
 }
