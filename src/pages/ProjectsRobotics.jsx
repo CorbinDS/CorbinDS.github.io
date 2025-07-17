@@ -1,13 +1,11 @@
 import Carousel from "../components/Carousel";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import BackLink from "../components/BackLink"
 
 export default function ProjectsRobotics() {
   return (
-    <main className="px-6 py-1 max-w-screen-xl mx-auto text-gray-800">
-      <Link to="/" className="absolute text-blue-500 hover:text-blue-700">
-        ← Back to Home
-      </Link>
-      <h1 className="text-center text-4xl font-bold mb-4">
+    <main className="page-container">
+      <BackLink />
+      <h1 className="page-title">
         My time on{"  "}
         <a
           href="https://cornellcuprobotics.com/"
@@ -54,7 +52,7 @@ export default function ProjectsRobotics() {
       {/* Minibot Developer Section */}
       <section className="mb-12">
         <div className="flex flex-row items-end justify-between mb-2">
-          <h2 className="text-2xl font-semibold">Minibot Developer</h2>
+          <h2 className="section-heading">Minibot Developer</h2>
           <div className="flex flex-row gap-4">
             <a
               href="https://github.com/cornell-cup/cs-reminibot"
@@ -82,7 +80,7 @@ export default function ProjectsRobotics() {
           robot or sending them over to the web based basestation for the robot
           (using React) and building up a small program to run later.
         </p>
-        <ul className="list-disc pl-6 mb-4">
+        <ul className="item-list">
           <li>
             Utilized CV principles to correct lens distortion and reduce noise
             in camera input
@@ -104,7 +102,7 @@ export default function ProjectsRobotics() {
             Javascript instead of mouse input.
           </li>
         </ul>
-        <div className="text-sm text-gray-600">
+        <div className="skill-block">
           <strong>Skills:</strong> Python, React, Javascript, Computer Vision,
           Raspberry Pi, Git
         </div>
@@ -113,7 +111,7 @@ export default function ProjectsRobotics() {
       {/* CS Lead Section */}
       <section className="mb-12">
         <div className="flex flex-row items-end justify-between mb-2">
-          <h2 className="text-2xl font-semibold">Minibot CS Lead</h2>
+          <h2 className="section-heading">Minibot CS Lead</h2>
           <div className="flex flex-row gap-4">
             <a
               href="https://github.com/cornell-cup/cs-reminibot"
@@ -154,7 +152,7 @@ export default function ProjectsRobotics() {
           Raspberry Pi and multiple Arduinos, to using the ESP32 and a Raspberry
           Pi Zero for onboard vision.
         </p>
-        <ul className="list-disc pl-6 mb-4">
+        <ul className="item-list">
           <li>
             Led development of a modular robotics kit utilizing Raspberry Pi and
             Arduino
@@ -173,7 +171,7 @@ export default function ProjectsRobotics() {
           </li>
           <li>Pushed for LLM integration with existing platform features.</li>
         </ul>
-        <div className="text-sm text-gray-600">
+        <div className="skill-block">
           <strong>Skills:</strong> Planning system architecture, team mentoring,
           pair debugging, project management, feature planning, leading demos
         </div>
@@ -182,7 +180,7 @@ export default function ProjectsRobotics() {
       {/* Team Lead Section */}
       <section className="mb-12">
         <div className="flex flex-row items-end justify-between mb-2">
-          <h2 className="text-2xl font-semibold">Full Project Team Lead</h2>
+          <h2 className="section-heading">Full Project Team Lead</h2>
           <div className="flex flex-row gap-4">
             <a
               href="https://github.com/cornell-cup/cs-rere  minibot"
@@ -206,7 +204,7 @@ export default function ProjectsRobotics() {
           protocols, communication between ESP32 and laptops over the network,
           and more.
         </p>
-        <ul className="list-disc pl-6 mb-4">
+        <ul className="item-list">
           <li>
             Managed team of around 60 members work over 3 unique robotics
             projects.
@@ -227,7 +225,7 @@ export default function ProjectsRobotics() {
             Did simple controls programming for early arm mechanisms for BOB
           </li>
         </ul>
-        <div className="text-sm text-gray-600">
+        <div className="skill-block">
           <strong>Skills:</strong> Agile project management, project planning,
           cross-functional leadership, system planning
         </div>

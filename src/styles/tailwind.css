@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .page-container {
+    @apply max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-800;
+  }
+  .page-title {
+    @apply text-center text-4xl font-bold my-4 pb-5;
+  }
+  .section-heading {
+    @apply text-2xl font-semibold mb-2;
+  }
+  .subsection-heading {
+    @apply text-base font-semibold mb-1 text-gray-700;
+  }
+  .item-list {
+    @apply list-disc pl-6 mb-4 space-y-1;
+  }
+  .skill-block {
+    @apply text-sm text-gray-600;
+  }
+  .project-preview {
+    @apply relative h-[68vh] origin-top overflow-hidden rounded shadow-md hover:shadow-xl transition;
+  }
+  .preview-img {
+    @apply w-full h-full object-cover group-hover:scale-105 transition-transform duration-300;
+  }
+  .preview-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition;
+  }
+  .preview-title {
+    @apply absolute inset-0 flex items-center justify-center text-white text-2xl font-semibold z-10 text-center px-4;
+  }
+  .btn {
+    @apply inline-block mt-2 text-white bg-gray-600 hover:bg-blue-700 font-semibold px-4 py-2 rounded-md w-fit
+  }
+}

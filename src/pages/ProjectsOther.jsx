@@ -1,16 +1,11 @@
 import ProjectGallery from "../components/ProjectGallery";
 import projects from "../data/otherProjects";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import BackLink from "../components/BackLink"
 function ProjectsOther() {
   return (
-    <div className="max-w-screen-xl mx-auto px-4">
-      <div>
-        <Link to="/" className="absolute text-blue-500 hover:text-blue-700">
-          ← Back to Home
-        </Link>
-      </div>
-      <h1 className="text-center text-4xl font-bold my-4 pb-5">
+    <div className="page-container">
+      <BackLink />
+      <h1 className="page-title">
         {" "}
         Game Development Projects
       </h1>
