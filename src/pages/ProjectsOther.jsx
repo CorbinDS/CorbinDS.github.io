@@ -7,7 +7,7 @@ function ProjectsOther() {
       <BackLink />
       <h1 className="page-title">
         {" "}
-        Game Development Projects
+        Other Projects
       </h1>
       <ProjectGallery projects={projects} expandable={true} />
     </div>
