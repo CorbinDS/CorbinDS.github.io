@@ -1,9 +1,26 @@
 const gameProjects = [
     {
+        name: "Looping Hazards",
+        description: "Racing Roguelike for GTMK 2025",
+        tags: ["Unity", "C#", "Developer", "Game Jam"],
+        itch: "https://nibrocu.itch.io/looping-hazards",
+        image: "/images/LoopingHazards.webp",
+        teamSize: "1",
+        longDescription: "Looping Hazards was made in 4 days for the GTMK 2025 game jam to fit the theme \"Loop.\" All scripts, and UI were made during the 4 day period.",
+        roleName: "Developer and Game Designer",
+        timeFrame: "July - Aug 2025",
+        responsibilities: [
+            "Ideation of the game idea, as well as creation of the initial design document.",
+            "Implementation of every C# script for the game.",
+            "Generated racetrack mesh utilizing Unity's spline system",
+            "Creation and layout of all UI elements in the game.",
+            "Designed and balanced the gameplay of the car and the hazards in the game."
+        ]
+    },
+    {
         name: "Micromancer Mike",
         description: "Adventure Platfomer for GTMK 2024",
         tags: ["Unity", "C#", "Developer", "Game Jam"],
-        github: "https://github.com/yourname/paper-plane-game",
         itch: "https://nibrocu.itch.io/micromancer-mike",
         image: "/images/micromancer.webp",
         teamSize: "3",
