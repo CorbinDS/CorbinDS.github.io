@@ -48,7 +48,7 @@ function App() {
               <FaItchIo size={ICON_SIZE} />
             </a>
             <a
-              href="/CorbinSResume.pdf"
+              href="/CorbinStickleyResume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-red-700"

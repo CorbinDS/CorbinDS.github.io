@@ -21,7 +21,7 @@ function About() {
             more.
           </p>
           <a
-            href="/CorbinSResume.pdf"
+            href="/CorbinStickleyResume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn"
